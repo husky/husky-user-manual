@@ -23,16 +23,16 @@
 \contentsline {subsection}{\numberline {5.6}Verification}{16}{subsection.5.6}
 \contentsline {section}{\numberline {6}USING ROS}{17}{section.6}
 \contentsline {subsection}{\numberline {6.1}Nodes}{17}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Topics}{17}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Workspace}{17}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}Payloads}{18}{subsection.6.4}
-\contentsline {section}{\numberline {7}Battery and Maintenance}{19}{section.7}
-\contentsline {subsection}{\numberline {7.1}Charging}{19}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Battery Care}{19}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}Wheels}{20}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}Chassis}{21}{subsection.7.4}
-\contentsline {section}{\numberline {8}TIPS AND TROUBLESHOOTING}{22}{section.8}
-\contentsline {subsection}{\numberline {8.1}Mechanical Tips}{22}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}Troubleshooting}{22}{subsection.8.2}
-\contentsline {section}{\numberline {9}Product Dimensions}{23}{section.9}
+\contentsline {subsection}{\numberline {6.2}Topics}{18}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Workspace}{18}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Payloads}{19}{subsection.6.4}
+\contentsline {section}{\numberline {7}Battery and Maintenance}{20}{section.7}
+\contentsline {subsection}{\numberline {7.1}Charging}{20}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Battery Care}{20}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Wheels}{21}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Chassis}{22}{subsection.7.4}
+\contentsline {section}{\numberline {8}TIPS AND TROUBLESHOOTING}{23}{section.8}
+\contentsline {subsection}{\numberline {8.1}Mechanical Tips}{23}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Troubleshooting}{23}{subsection.8.2}
+\contentsline {section}{\numberline {9}Product Dimensions}{24}{section.9}
 \contentsline {section}{\numberline {10}Service and Support}{25}{section.10}

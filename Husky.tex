@@ -64,8 +64,8 @@ This section provides an overview of the key specifications of the Husky platfor
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.75\linewidth]{husky-front.PNG}
-  \includegraphics[width=0.75\linewidth]{husky-rear.PNG}
+  \includegraphics[width=0.9\linewidth]{husky-front.PNG}
+  \includegraphics[width=0.9\linewidth]{husky-rear.PNG}
   \caption{Husky at a Glance}
   \label{husky_glance}
 \end{figure}
@@ -110,15 +110,15 @@ Husky provides a female DE-9 connector for communication with a host device. The
 \begin{figure}[h]
 	\centering
 	\begin{tabular}{  >{\centering\arraybackslash}m{.4\linewidth} c c c c }
-	\multirow{5}{*}{\includegraphics[width=0.3\textwidth]{pinout.png}} \\  \cline{2-5} 
+	\multirow{5}{*}{\includegraphics[width=0.4\textwidth]{pinout.png}} \\  \cline{2-5} 
 	& \cellcolor{lightgrey}  Pin & \cellcolor{lightgrey}  Name & \cellcolor{lightgrey}  Dir & \cellcolor{lightgrey}  Description \\ \cline{2-5}
 	& 2 & RX & IN & Data from Platform\\  \cline{2-5}
 	& 3 & TX & OUT & Data to Platform\\ \cline{2-5}
 	& 5 & GND & N/A & Common Ground\\ \cline{2-5}
 	\end{tabular}
 	\newline
-	\caption{Husky DE9 Pinout}
 	\label{pinout}
+	\caption{Husky DE9 Pinout}
 \end{figure}
 
 \newpage
@@ -137,8 +137,8 @@ Key specifications of Husky are shown in \autoref{systemspecs} .
 	Track & 555 mm & 21.9 in \\ \hline
 	Wheelbase & 512 mm & 20.2 in \\ \hline
 	Weight & 50 kg & 110 lbs \\ \hline
-	Maximum Payload\footnote{Continuous operation on relatively flat terrain with wide turns} & 75 kg & 165 lbs \\ \hline
-	All-terrain payload\footnote{Vehicle climbing 30° grade with high-mounted payload, or turning in place in high-friction conditions} & 20 kg & 44 lbs \\ \hline
+	Maximum Payload\footnotemark[1] & 75 kg & 165 lbs \\ \hline
+	All-terrain payload\footnotemark[2] & 20 kg & 44 lbs \\ \hline
 	Speed (max) & 1.0 m/s & 3.3 ft/s \\ \cline{2-3}
 	Ground clearance & 130mm & 5 in \\ \cline{2-3}
 	Climb grade & 45\degree & 100\% slope \\ \cline{2-3}
@@ -169,6 +169,9 @@ Key specifications of Husky are shown in \autoref{systemspecs} .
 \caption{Husky A200 System Specifications}
 \label{systemspecs}
 \end{table}
+
+\footnotetext[1]{Continuous operation on relatively flat terrain with wide turns}
+\footnotetext[2]{Vehicle climbing 30° grade with high-mounted payload, or turning in place in high-friction conditions}
 \newpage
 \subsection{Vehicles Equations}
 
@@ -249,7 +252,7 @@ These topics provides useful information regarding voltages, currents, temperatu
 
 The total current draw does not include the motors drivers; it is the current consumed by the MCU and user power ports. 
 Husky’s motors are rated to draw 8A continuous, but they will spike to several times this, particularly when traversing 
-ough terrain and when turning on the spot. To reduce current draw, consider commanding wider-radius turns from 
+rough terrain and when turning on the spot. To reduce current draw, consider commanding wider-radius turns from 
 your control software.
 
 The temperature is measured in the motor drivers and on the motor casings; the coils inside the motor casings cannot be measured.
@@ -310,7 +313,7 @@ You will want to add Husky's hostname to your \lstinline{/etc/hosts} file along 
 so your remote PC can communicate with Husky via it's hostname.
 
 Husky's hostname will either be set by Clearpath, or defined by the user during the 
-installation process, in any case, you can verify the hostname and IP address of Husky easily by using
+installation process, in any case, you can verify the hostname and IP address of Husky using
 the following commands during an SSH session with the onboard  PC.
 
 \begin{lstlisting}
@@ -319,14 +322,14 @@ ifconfig
 \end{lstlisting}
 
 
-Once Husky's hostname and IP address have beend added to \lstinline{/etc/hosts}, ensure the remote PC
+Once Husky's hostname and IP address have been added to \lstinline{/etc/hosts}, ensure the remote PC
 can communicate with Husky via hostname:
 
 \begin{lstlisting}
 ping HUSKY'S HOSTNAME
 \end{lstlisting}
 
-If both computers can ping each other, then set the follow ROS environment variable on your remote PC.
+If both computers can ping each other, then set the following ROS environment variable on your remote PC.
 
 \begin{lstlisting}
 export ROS_MASTER_URI=http://<HUSKY'S HOSTNAME>:11311
@@ -371,7 +374,7 @@ To power on Husky, firmly press the power button located above the status panel.
 status panel lights will show a brief test pattern. The comm status light will turn red, as the PC is not yet 
 communicating with Husky.
 
-The stop status light will be red if the e-stop is pressed. If it is not,press the e-stop button and 
+The stop status light will be red if the e-stop is pressed. If it is not, press the e-stop button and 
 verify that the stop light illuminates. Leave the platform in an e-stop state until it is successfully receiving commands.
 
 \subsection{User Bay Power Connections}
@@ -402,11 +405,6 @@ To tele-operate Husky, plug a USB joystick into the included onboard computer, a
 After a few seconds, ROS should recognize the joystick and begin passing commands through to the mobile platform. 
 Press the enable button (typically button 1), and use the main joystick axis or left thumbstick to drive Husky.
 
-If Husky was purchased without a computer, ROS will need to be set up for use with Husky on a user-supplied PC. 
-The intended model is for this PC to be running Ubuntu 12.0.4 LTS and have ROS Hydro installed 
-\url{http://wiki.ros.org/hydro/Installation/Ubuntu}. Afterwards, instructions to download Husky software 
-packages can be found at \url{http://ros.org/wiki/Robots/Husky}.
-
 Direct control using the Python or C++ interfaces is also possible, the API is available at
 \url{http://www.clearpathrobotics.com/husky/downloads} However, please note that Clearpath Robotics no 
 longer provides support for these packages, and are supplied as is.
@@ -414,8 +412,9 @@ longer provides support for these packages, and are supplied as is.
 \section{USING ROS}
 Robot Operating System (ROS) is an extensible framework for controlling and working with robotic systems. 
 Clearpath Robotics recommends using ROS with Husky. If this is your first time using ROS, it is strongly 
-recommended to run through our series of ROS101 blogs articles to learn the basics of ROS 
-\url{http://support.clearpathrobotics.com}.
+recommended to run through our series of ROS101 tutorials to learn the basics of ROS 
+\url{http://support.clearpathrobotics.com}. If you did not not purchase a PC from Clearpath Robotics, please visit \url{http://wiki.ros.org/Robots/Husky} 
+to set up your own on board PC.
 
 \subsection{Nodes}
 You can use \lstinline{rosnode list} to see all the nodes running by default on a Husky computer. 
@@ -423,20 +422,31 @@ The baseline set of these is presented with commentary in \autoref{nodes}.
 
 \begin{table}[h]
 	\centering
-	\begin{tabular}{>{\columncolor{lightgrey}}m{.4\linewidth} m{.4\linewidth}}
+	\begin{tabular}{>{\columncolor{lightgrey}}m{.25\linewidth} m{.5\linewidth}} \hline
 	Node & Description\\ \hline
+	\lstinline{/husky_node} & Provides control and communication between the Husky platform and ROS. Accepts velocity commands and provides system feedback on \lstinline{/status}\\ \hline
+	\lstinline{/robot_state_publisher} & Subscribes to \lstinline{/joint_states} and publishes the robot's state to \lstinline{/tf}\\ \hline
+	\lstinline{/bluetooth_teleop} & Publishes velocity commands from a joystick to \lstinline{/twist_mux} \\ \hline
+	\lstinline{/twist_mux} & Takes in multiple sources of velocity commands, and prioritizes what actually gets sent to the controller\\ \hline
+	\lstinline{/ekf_localization} & Part of the robot localization package, more information regarding this package can be found at \url{http://wiki.ros.org/robot_localization}\\ \hline 
 	\end{tabular}
-	\caption{Standard Husky Nodes}
 	\label{nodes}
+	\caption{Standard Husky Nodes}
 \end{table}
-
+\newpage
 \subsection{Topics}
 You can view all topics that are active using \lstinline{rostopc list}. Some of the base topics are listed in \autoref{topics}.
 
 \begin{table}[h]
 	\centering
-	\begin{tabular}{>{\columncolor{lightgrey}}m{.4\linewidth} m{.4\linewidth}}
-	Topic & Description\\ \hline
+	\begin{tabular}{>{\columncolor{lightgrey}}m{.3\linewidth} m{.25\linewidth} m{.3\linewidth}} \hline
+		Topic & Message type & Description\\ \hline
+		\lstinline{husky_velocity_controller/cmd_vel} & \lstinline{geometry_msgs/Twist} & Motion commands to Husky\\ \hline
+		\lstinline{/bluetooth_teleop/joy} & \lstinline{sensor_msgs/Joy} & Receives joystick commands, echo this topic to verify your controller is publishing  \\ \hline
+		\lstinline{/tf} & \lstinline{tf2_msgs/TFMessage} & Transforms between coordinate frames, this should always be publishing, and hence a good topic to echo to test your ROS connection \\ \hline
+		\lstinline{/status} & \lstinline{husky_msgs/HuskyStatus} & Displays system status information\\ \hline
+		\lstinline{/estop} & \lstinline{std_msgs/Bool} & Displays the estop status\\ \hline
+		\lstinline{/diagnostics} & \lstinline{diagnostic_msgs/DiagnosticArray} & ROS system status messages \\ \hline
 	\end{tabular}
 	\caption{Standard Husky Topics}
 	\label{topics}
@@ -565,6 +575,7 @@ This section lists a few possible issues which may be encountered:
 	\item Comm light stays red/flickers. Your program may not be sending motion commands faster than 10Hz. If there is a poor quality connection, some commands may be lost, so it may be necessary to increase the frequency of commands sent. The maximum frequency commands can be sent is 50Hz
 	\item E-stop light illuminated. Twist the red e-stop to release it, and confirm that the robot is not locked out.
 	\item Battery indicator flashing. Battery voltage is too low for Husky to drive the motors. Charge the battery and try again.
+	\item A ROS package isn't starting. Verify the upstart logs, \lstinline{/var/log/upstart/husky_core.log} to see if there are any error during upstart.
 \end{itemize}
 	
 If you experience setup issues that aren’t listed here, or the suggested solution isn’t working out, please get in touch with our support team so we can help: support@clearpathrobotics.com.
@@ -574,7 +585,7 @@ If you experience setup issues that aren’t listed here, or the suggested solut
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth]{husky-dimensions.png}
+	\includegraphics[width=.9\textwidth]{husky-dimensions.png}
 \end{figure}
 \newpage
 \section{Service and Support}
@@ -585,7 +596,7 @@ or visit out knowledge base for at \href{http://support.clearpathrobotics.com}{s
 To get in touch with our sales team regarding Husky or other Clearpath Robotics products, please
 email \href{mailto:sales@clearpathrobotics.com}{sales@clearpathrobotics.com}.
 
-If you have a an issue that is specifically about ROS and is something which may be of interest
+If you have an issue that is specifically about ROS and is something which may be of interest
 to the broader community, consider asking it on \href{http://answers.ros.org}{answers.ros.org}.
 If you don't get a satisfactory response, please ping us and include a link to your question
 as posted there. If appropriate, we'll answer in the ROS Answers context for the benefit of the
