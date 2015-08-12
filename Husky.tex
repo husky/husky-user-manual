@@ -202,7 +202,7 @@ When Husky is operating, keep clear of the wheels, paying particular attention t
 \subsection{E-Stop and Lockout}
 
 The red emergency stop button (e-stop) and lockout are located on the back of Husky, opposite the status panel, 
-shown in autoref{estop-lockout}. Power supply to Husky’s motor drivers is enabled by a normally-open relay, 
+shown in \autoref{estop-lockout}. Power supply to Husky’s motor drivers is enabled by a normally-open relay, 
 which is closed in series with the e-stop switch. When in e-stop mode, the status panel e-stop light will illuminate red, 
 and Husky will not drive. The commands received during e-stop are not buffered; Husky will always act on the latest commands 
 received. This means that if the commands are stopped before the e-stop is released, the Husky will not move. If the 
@@ -258,7 +258,7 @@ your control software.
 The temperature is measured in the motor drivers and on the motor casings; the coils inside the motor casings cannot be measured.
 Therefore, it is important to note that the temperature measured on the motor casings is a lagging indicator of 
 the temperature of the coils inside the casing. Be aware of the delay in heat propagation on the motors during heavy use. 
-The thermal limit of the system is 50 C\degree, and the system will shut down if this limit is reached
+The thermal limit of the system is 50 C\degree, and the system will shut down if this limit is reached.
 Monitoring these fields over longer periods of operation will allow you to ensure that you are not putting 
 excessive wear on the motors.
 \newpage
@@ -274,7 +274,7 @@ Before beginning, place Husky “up on blocks”, as described in the Safety sec
 If you purchased a computer from Clearpath Robotics with Husky, it is already installed, connected, and powered. 
 Provided on this machine is the officially-supported ROS software for Husky, joystick teleoperation, and any sensor payloads purchased.
 
-To set up your own onboard PC, please visit \url{http://wiki.ros.org/husky_bringup/Tutorials/}
+To set up your own onboard PC, please visit \url{http://wiki.ros.org/Robots/Husky}
 
 
 \subsection{Connecting Computer}
