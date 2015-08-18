@@ -435,21 +435,35 @@ The baseline set of these is presented with commentary in \autoref{nodes}.
 \end{table}
 \newpage
 \subsection{Topics}
-You can view all topics that are active using \lstinline{rostopc list}. Some of the base topics are listed in \autoref{topics}.
+You can view all topics that are active using \lstinline{rostopc list}. Some of the base topics are listed in \autoref{topics} and \autoref{topics-motion}.
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{>{\columncolor{lightgrey}}m{.3\linewidth} m{.25\linewidth} m{.3\linewidth}} \hline
 		Topic & Message type & Description\\ \hline
-		\lstinline{husky_velocity_controller/cmd_vel} & \lstinline{geometry_msgs/Twist} & Motion commands to Husky\\ \hline
 		\lstinline{/bluetooth_teleop/joy} & \lstinline{sensor_msgs/Joy} & Receives joystick commands, echo this topic to verify your controller is publishing  \\ \hline
 		\lstinline{/tf} & \lstinline{tf2_msgs/TFMessage} & Transforms between coordinate frames, this should always be publishing, and hence a good topic to echo to test your ROS connection \\ \hline
 		\lstinline{/status} & \lstinline{husky_msgs/HuskyStatus} & Displays system status information\\ \hline
+		\lstinline{/odometry/filtered} & \lstinline{husky_msgs/HuskyStatus} & Displays system status information\\ \hline
 		\lstinline{/estop} & \lstinline{std_msgs/Bool} & Displays the estop status\\ \hline
-		\lstinline{/diagnostics} & \lstinline{diagnostic_msgs/DiagnosticArray} & ROS system status messages \\ \hline
+		\lstinline{/odometry/filtered} & \lstinline{nav_msgs/Odometry} &  The odometry estimate of the robot from \lstinline{/ekf_localization}\\ \hline
 	\end{tabular}
-	\caption{Standard Husky Topics}
 	\label{topics}
+	\caption{Standard Husky Topics}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{>{\columncolor{lightgrey}}m{.3\linewidth} m{.25\linewidth} m{.3\linewidth}} \hline
+		Motion Topics & \lstinline{twist_mux} Priority & Description\\ \hline
+		\lstinline{husky_velocity_controller/cmd_vel} & - & Receives motion commands from \lstinline{twist_mux} based off their priority\\ \hline
+		\lstinline{joy_teleop/cmd_vel} & 10 & Joystick teleop input\\ \hline
+		\lstinline{twist_marker_server/cmd_vel} & 8 & Interactive marker teleop input\\ \hline
+		\lstinline{move_base/cmd_vel} & 2 & Autonomous movement input, for the husky navigation packages\\ \hline
+		\lstinline{cmd_vel} & 1 & Miscellaneous external input \\ \hline
+	\end{tabular}
+	\caption{Standard Husky Motion Topics}
+	\label{topics-motion}
 \end{table}
 
 \subsection{Workspace}
