@@ -77,17 +77,30 @@ The status panel is a display of LED indicators located on the rear of the chass
 provide information about the current status of Husky. The indicators are described in \autoref{status_panel}.
 
 \begin{table}[h]
-	\centering
-		\begin{tabular}{  >{\centering\arraybackslash}m{.1\linewidth}  m{.7\linewidth} } \hline
-		\rowcolor{lightgrey} Icon    & Description  \\ \hline
-		\includegraphics[width= 0.7 cm]{battery-mini.png} & \textbf{Battery status} . The four LED segments provide an approximate indication as to the relative lifetime remaining in the battery,   \\ \hline
-		\includegraphics[width= 0.7 cm]{comm-mini.png} & \textbf{Communication status} When green, Husky is receiving a stream of correctly-formatted motion commands, and is ready to drive. When yellow, Husky is receiving commands but will not drive due to emergency stop or another error. When red, serial communications are currently timed-out. \\ \hline
-		\includegraphics[width= 0.7 cm]{err-mini.png} & \textbf{General error status}.Illuminates red when Husky will not drive due to an error state. Such states include emergency stop, insufficient battery power, or an unspecified software error. \\ \hline
-		\includegraphics[width= 0.7 cm]{estop-mini.png}& \textbf{Emergency stop status} Illuminates red when Husky will not drive due to the emergency stop being activated, either onboard or wireless (if available). \\ \hline
-		\includegraphics[width= 0.7 cm]{charge-mini.png}& \textbf{Charge Indicator} Illuminates red when Husky user power is being supplied externally.\\ \hline
-		\end{tabular}
-	\caption{Husky Status Panel Icons}
-	\label{status_panel}
+  \renewcommand{\arraystretch}{1.6}
+  \centering
+    \begin{tabular}{ >{\centering\arraybackslash}m{.1\linewidth} >{\raggedright\arraybackslash}m{.7\linewidth} }
+      \hline
+    \rowcolor{lightgrey} Icon & Description
+      \\ \hline
+    \includegraphics[width=0.7 cm]{battery-mini.png} &
+      \textbf{Battery status} The four LED segments provide an approximate indication as to the relative lifetime remaining in the battery,
+      \\[4pt] \hline
+    \includegraphics[width=0.7 cm]{comm-mini.png} &
+      \textbf{Communication status} When green, Husky is receiving a stream of correctly-formatted motion commands, and is ready to drive. When yellow, Husky is receiving commands but will not drive due to emergency stop or another error. When red, serial communications are currently timed-out.
+      \\[4pt] \hline
+    \includegraphics[width=0.7 cm]{err-mini.png} &
+      \textbf{General error status} Illuminates red when Husky will not drive due to an error state. Such states include emergency stop, insufficient battery power, or an unspecified software error.
+      \\[4pt] \hline
+    \includegraphics[width=0.7 cm]{estop-mini.png} &
+      \textbf{Emergency stop status} Illuminates red when Husky will not drive due to the emergency stop being activated, either onboard or wireless (if available).
+      \\[4pt] \hline
+    \includegraphics[width=0.7 cm]{charge-mini.png} &
+      \textbf{Charge Indicator} Illuminates red when Husky user power is being supplied externally.
+      \\[4pt] \hline
+    \end{tabular}
+  \caption{Husky Status Panel Icons}
+  \label{status_panel}
 \end{table}
 \newpage
 
