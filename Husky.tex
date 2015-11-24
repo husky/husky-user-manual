@@ -433,19 +433,21 @@ to set up your own on board PC.
 You can use \lstinline{rosnode list} to see all the nodes running by default on a Husky computer. 
 The baseline set of these is presented with commentary in \autoref{nodes}.
 
+\bgroup
 \begin{table}[h]
 	\centering
 	\begin{tabular}{>{\columncolor{lightgrey}}m{.25\linewidth} m{.5\linewidth}} \hline
-	Node & Description\\ \hline
-	\lstinline{/husky_node} & Provides control and communication between the Husky platform and ROS. Accepts velocity commands and provides system feedback on \lstinline{/status}\\ \hline
-	\lstinline{/robot_state_publisher} & Subscribes to \lstinline{/joint_states} and publishes the robot's state to \lstinline{/tf}\\ \hline
-	\lstinline{/bluetooth_teleop} & Publishes velocity commands from a joystick to \lstinline{/twist_mux} \\ \hline
-	\lstinline{/twist_mux} & Takes in multiple sources of velocity commands, and prioritizes what actually gets sent to the controller\\ \hline
-	\lstinline{/ekf_localization} & Part of the robot localization package, more information regarding this package can be found at \url{http://wiki.ros.org/robot_localization}\\ \hline 
+	Node & Description \\ \hline
+	/husky\_node & Provides control and communication between the Husky platform and ROS. Accepts velocity commands and provides system feedback on /status \\ \hline
+	/robot\_state\_publisher & Subscribes to /joint\_states and publishes the robot's state to tf \\ \hline
+	/bluetooth\_teleop & Publishes velocity commands from a joystick to /twist\_mux \\ \hline
+	/twist\_mux & Takes in multiple sources of velocity commands, and prioritizes what actually gets sent to the controller \\ \hline
+	/ekf\_localization & Part of the robot localization package, more information regarding this package can be found at \url{http://wiki.ros.org/robot_localization } \\ \hline 
 	\end{tabular}
 	\label{nodes}
 	\caption{Standard Husky Nodes}
 \end{table}
+\egroup
 \newpage
 \subsection{Topics}
 You can view all topics that are active using \lstinline{rostopc list}. Some of the base topics are listed in \autoref{topics} and \autoref{topics-motion}.
@@ -602,6 +604,7 @@ This section lists a few possible issues which may be encountered:
 	\item E-stop light illuminated. Twist the red e-stop to release it, and confirm that the robot is not locked out.
 	\item Battery indicator flashing. Battery voltage is too low for Husky to drive the motors. Charge the battery and try again.
 	\item A ROS package isn't starting. Verify the upstart logs, \lstinline{/var/log/upstart/husky_core.log} to see if there are any error during upstart.
+	\item Husky experiences momentary drops in communication.  It's possible the robot has reached the thermal limit, or current limit. The maximum current limits are set to 18.3A, however, as  the motors are only rated for 8A continuous, anything above that will trigger the current limit eventually, the higher above this limit, the more quickly it will trigger.  If you are unsure whether this is the case, feel free to contacting support@clearpathrobotics.com with a rosbag of your system. Clearpath robotics also offers a high torque upgrade if more torque is required for your project.
 \end{itemize}
 	
 If you experience setup issues that aren’t listed here, or the suggested solution isn’t working out, please get in touch with our support team so we can help: support@clearpathrobotics.com.
