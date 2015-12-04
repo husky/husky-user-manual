@@ -1,3 +1,4 @@
+
 % Software License Agreement
 %
 % Author    Mike Purvis <mpurvis@clearpathrobotics.com>
@@ -20,7 +21,7 @@
 
 \section{Introduction}
 
-Husky is a rugged and easy-to-use unmanned ground vehicle for rapid prototyping and research applications. In this guide, you will find information about the setup, operation, and maintenance of Husky.
+Husky is a rugged and easy-to-use unmanned ground vehicle for rapid prototyping and research applications. In this guide you will find information about the setup, operation, and maintenance of Husky.
 
 \subsection{What's Included}
 
@@ -84,10 +85,10 @@ provide information about the current status of Husky. The indicators are descri
     \rowcolor{lightgrey} Icon & Description
       \\ \hline
     \includegraphics[width=0.7 cm]{battery-mini.png} &
-      \textbf{Battery status} The four LED segments provide an approximate indication as to the relative lifetime remaining in the battery,
+      \textbf{Battery status} The four LED segments provide an approximate indication of the relative lifetime remaining in the battery,
       \\[4pt] \hline
     \includegraphics[width=0.7 cm]{comm-mini.png} &
-      \textbf{Communication status} When green, Husky is receiving a stream of correctly-formatted motion commands, and is ready to drive. When yellow, Husky is receiving commands but will not drive due to emergency stop or another error. When red, serial communications are currently timed-out.
+      \textbf{Communication status} When green, Husky is receiving a stream of correctly-formatted motion commands, and is ready to drive. When yellow, Husky is receiving commands, but will not drive due to emergency stop or another error. When red, serial communications are currently timed-out.
       \\[4pt] \hline
     \includegraphics[width=0.7 cm]{err-mini.png} &
       \textbf{General error status} Illuminates red when Husky will not drive due to an error state. Such states include emergency stop, insufficient battery power, or an unspecified software error.
@@ -117,7 +118,7 @@ The direction of the axes differs from those used for roll, pitch, and yaw in ai
 
 \subsection{Pinout Refrences}
 
-Husky provides a female DE-9 connector for communication with a host device. The pinout of this connector is shown in \autoref{pinout}.
+Husky provides a female DE-9 connector for communication with a host device. The pinout of this connector is shown in \autoref{pinouttable} .
 
 
 \begin{figure}[h]
@@ -130,8 +131,9 @@ Husky provides a female DE-9 connector for communication with a host device. The
 	& 5 & GND & N/A & Common Ground\\ \cline{2-5}
 	\end{tabular}
 	\newline
-	\label{pinout}
 	\caption{Husky DE9 Pinout}
+	\label{pinouttable}
+	
 \end{figure}
 
 \newpage
@@ -146,7 +148,7 @@ Key specifications of Husky are shown in \autoref{systemspecs} .
 	& 990 mm length & 39 in length \\
 	& 670 mm width & 26.4 in width \\
 	\multirow{-3}{*}{Dimensions} 
-	& 390 mm length & 14.6 in height \\ \cline{2-3}
+	& 390 mm height & 14.6 in height \\ \cline{2-3}
 	Track & 555 mm & 21.9 in \\ \hline
 	Wheelbase & 512 mm & 20.2 in \\ \hline
 	Weight & 50 kg & 110 lbs \\ \hline
@@ -186,7 +188,7 @@ Key specifications of Husky are shown in \autoref{systemspecs} .
 \footnotetext[1]{Continuous operation on relatively flat terrain with wide turns}
 \footnotetext[2]{Vehicle climbing 30° grade with high-mounted payload, or turning in place in high-friction conditions}
 \newpage
-\subsection{Vehicles Equations}
+\subsection{Vehicle Equations}
 
 As a starting point, Clearpath Robotics recommends using the following relationship between wheel velocity and platform velocity:
 \begin{figure}[h]
@@ -230,7 +232,7 @@ commands are continued, Husky will move at the speed commanded once the e-stop i
 
 Always ensure the e-stop button is accessible at all times. Avoid mounting payloads that extend over the rear of Husky and would occlude the e-stop.
 
-The lockout provides a secondary e-stop for periods during which Husky will be left unattended. When in lockout mode, the robot will still power on, but the motors will not drive.
+The lockout provides a way to secure Husky from performing any type of motion. When in lockout mode, the robot will still power on, but the motors will not drive.
 
 \subsection{Electrical System}
 Husky is powered by a single 24V sealed lead-acid battery, similar to the type found in electric wheelchairs, golf carts, 
@@ -240,7 +242,7 @@ great performance, however, it is also enough power to cause severe bodily harm.
 \begin{itemize}
 	\item Do not tamper with the plug attached to the battery.
 	\item Do not tamper with the fuse panel, except to check and change the fuses, and to connect and disconnect the battery plug.
-	\item Do not operate Husky without the battery door in place. The battery is insufficiently restrained without the door, and will come loose, damaging the fuse panel.
+	\item Do not operate Husky without the battery door in place. The battery is not restrained without the door, and will come loose, damaging the fuse panel.
 	\item Charge the battery only with the charger provided by Clearpath Robotics.
 	\item Please dispose of the batteries properly.
 \end{itemize}
@@ -273,24 +275,26 @@ Therefore, it is important to note that the temperature measured on the motor ca
 the temperature of the coils inside the casing. Be aware of the delay in heat propagation on the motors during heavy use. 
 The thermal limit of the system is 50 C\degree, and the system will shut down if this limit is reached.
 Monitoring these fields over longer periods of operation will allow you to ensure that you are not putting 
-excessive wear on the motors.
+excessive wear on Husky's motors.
 \newpage
 
 \section{Getting Started}
 
 You are ready to go! This section details how to get Husky into action.
-Before beginning, place Husky “up on blocks”, as described in the Safety section – make sure the wheels are clear of the ground.
+To begin, place Husky “up on blocks” as described in the Safety section – make sure the wheels are clear of the ground.
+
+For most Husky setups, there will be an Onboard PC which is directly connected to the Husky and a Remote PC which is used to control Husky and gather data. These two PCs must be set up to communicate with each other.
 
 
 \subsection{Onboard PC Setup}
 
-If you purchased a computer from Clearpath Robotics with Husky, it is already installed, connected, and powered. 
+If you purchased an Onboard PC from Clearpath Robotics with Husky, it is already installed, connected, and powered. 
 Provided on this machine is the officially-supported ROS software for Husky, joystick teleoperation, and any sensor payloads purchased.
 
-To set up your own onboard PC, please visit \url{http://wiki.ros.org/Robots/Husky}
+If not, or to set up your own Onboard PC, please visit \url{http://wiki.ros.org/Robots/Husky}
 
 
-\subsection{Connecting Computer}
+\subsection{Connecting the Onboard PC}
 
 Husky’s serial port is located in the user power panel accessible from the user area, shown in \autoref{RS232}.
 
@@ -303,31 +307,32 @@ Husky’s serial port is located in the user power panel accessible from the use
 
 The connector is a female DE9, suitable for connection directly to a USB-serial adaptor, 
 or to a PC serial port via a straight-through modem cable (not a null modem cable). 
-How you connect the PC to Husky depends on whether the PC has a dedicated serial port:
+How you connect the Onboard PC to Husky depends on whether the Onboard PC has a dedicated serial port.
 
 \subsection{Remote PC}
 
-Once you have a PC connected to your Husky with ROS installed, it is recommended to set up your Remote PC.  
-Begin by either plugging the remote PC directly into Husky’s router, or connecting to the same wireless network 
+Once you have an Onboard PC connected to your Husky with ROS installed, it is recommended to set up your Remote PC.  
+Begin by either plugging the Remote PC directly into Husky’s router, or connecting to the same wireless network 
 that your Husky was configured to connect to.  
 
-It is now possible to communicate with Husky by either setting up a ROS master environment, or using SSH.  
-To access the onboard PC, you can SSH into Husky:
+It is now possible to communicate with Husky by either setting up a ROS master environment, or using SSH. SSH is very useful for directly accessing the Onboard PC and to perform software updates.
+
+To access the Onboard PC, you can SSH into Husky:
 
 \begin{lstlisting} 
-ssh administrator@<IP_OF_HUSKY_PC>
+ssh administrator@<IP_OF_ONBOARD_PC>
 \end{lstlisting}
 
-Some features are not available through SSH, and it is recommended to set up a ROS master environment. 
-If you are using a PC supplied by Clearapth, or using the Clearpath ISO on your own PC, Husky will
+However, some features are not available through SSH and so it is recommended to set up a ROS master environment. 
+If you are using an Onboard PC supplied by Clearapth, or using the Clearpath ISO on your own Onboard PC, Husky will
 already be configured as the ROS master.
 
-You will want to add Husky's hostname to your \lstinline{/etc/hosts} file along with it's IP address 
-so your remote PC can communicate with Husky via it's hostname.
+On your Remote PC you will want to add the Onboard PC hostname to your \lstinline{/etc/hosts} file along with it's IP address 
+so your Remote PC can communicate with Husky via it's hostname.
 
-Husky's hostname will either be set by Clearpath, or defined by the user during the 
+Husky's hostname (Onboard PC) will either be set by Clearpath, or defined by the user during the 
 installation process, in any case, you can verify the hostname and IP address of Husky using
-the following commands during an SSH session with the onboard  PC.
+the following commands during an SSH session with the Onboard  PC.
 
 \begin{lstlisting}
 hostname
@@ -335,7 +340,7 @@ hostname -i
 \end{lstlisting}
 
 
-Once Husky's hostname and IP address have been added to \lstinline{/etc/hosts}, ensure the remote PC
+Once Husky's hostname and IP address have been added to \lstinline{/etc/hosts}, ensure the Remote PC
 can communicate with Husky via hostname:
 
 \begin{lstlisting}
@@ -356,7 +361,7 @@ rostopic list
 rostopic echo /tf
 \end{lstlisting}
 
-If your Husky is equipped with an external radio or base station that is connected to a subnet different than your remote PC, 
+If your Husky is equipped with an external radio or base station that is connected to a subnet different than your Remote PC, 
 you will have to set up a static route to communicate with Husky. You can find the IP address of Husky’s 
 router using the routers built in interface or a third party application.
 \begin{lstlisting} 
@@ -369,19 +374,19 @@ sudo route add -net <IP OF HUSKY> netmask 255.255.255.255 gw <ADDRESS OF EXTERNA
 Husky comes with the battery fully charged and installed, but disconnected for safety during shipping. 
 To reconnect the battery:
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.8\textwidth]{battery-area.png}
-	\caption{Husky Battery Area}
-	\label{battery-area}
-\end{figure}
-
 \begin{enumerate}
 	\item Ensure Husky’s main power button is in the outer “off” position and the e-stop is activated.
 	\item Using curled index fingers to grip the battery door latches, press with thumbs on the latch buttons and lift the battery door free of the chassis.
 	\item Carefully connect the battery plug to the mating connector in the fuse panel, shown in \autoref{battery-area}. Ensure that it is firmly seated and clicks into place. It will be difficult to connect it in the incorrect polarity.
 	\item Replace the battery door cover, ensuring that it clicks into place and is flush with the rear panel.
 \end{enumerate}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{battery-area.png}
+	\caption{Husky Battery Area}
+	\label{battery-area}
+\end{figure}
 
 To power on Husky, firmly press the power button located above the status panel. It will illuminate blue, and the 
 status panel lights will show a brief test pattern. The comm status light will turn red, as the PC is not yet 
@@ -396,13 +401,15 @@ Each terminal comes equipped with a removable connector into which your payload 
 
 To begin, expose about 5mm of bare wire from the payload power leads. The power connector features two 
 openings on the top for each pin; a square hole and a round hole. Insert a 2mm wide flat head screwdriver 
-into the square hole to “open” the adjacent round hole. Slide the power lead into the round hole, and then 
+into the square hole to “open” the adjacent round hole as seen in \autoref{connectors}. Slide the power lead into the round hole, and then 
 remove the screwdriver to lock the wire in place.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.3\textwidth]{power-connector-1.png}
 	\includegraphics[width=0.5\textwidth]{power-connector-2.png}
+	\caption{Removable Power Connectors}
+	\label{connectors}
 \end{figure}
 
 When connecting payloads, be sure to observe correct polarity as marked on the inside of the user bay. 
@@ -414,24 +421,24 @@ If a computer was purchased with Husky, it will be setup to interface automatica
 60-90 seconds after booting up, the Husky comms light will change from red to green 
 (or yellow, depending on e-stop status), indicating that ROS is up and has established communications with Husky.
 
-To tele-operate Husky, plug a USB joystick into the included onboard computer, and release the emergency stop. 
+To tele-operate Husky, plug a USB joystick into the included Onboard PC, and release the emergency stop. 
 After a few seconds, ROS should recognize the joystick and begin passing commands through to the mobile platform. 
 Press the enable button (typically button 1), and use the main joystick axis or left thumbstick to drive Husky.
 
 Direct control using the Python or C++ interfaces is also possible, the API is available at
 \url{http://www.clearpathrobotics.com/husky/downloads} However, please note that Clearpath Robotics no 
-longer provides support for these packages, and are supplied as is.
+longer provides support for these packages, and are they supplied "as is".
 
 \section{Using ROS}
 Robot Operating System (ROS) is an extensible framework for controlling and working with robotic systems. 
 Clearpath Robotics recommends using ROS with Husky. If this is your first time using ROS, it is strongly 
 recommended to run through our series of ROS101 tutorials to learn the basics of ROS 
-\url{http://support.clearpathrobotics.com}. If you did not not purchase a PC from Clearpath Robotics, please visit \url{http://wiki.ros.org/Robots/Husky} 
-to set up your own on board PC.
+\url{http://support.clearpathrobotics.com}. If you did not purchase a PC from Clearpath Robotics, please visit \url{http://wiki.ros.org/Robots/Husky} 
+to set up your own Onboard PC.
 
 \subsection{Nodes}
 You can use \lstinline{rosnode list} to see all the nodes running by default on a Husky computer. 
-The baseline set of these is presented with commentary in \autoref{nodes}.
+The baseline set of these is presented with commentary in \autoref{nodes-table}.
 
 \bgroup
 \begin{table}[h]
@@ -444,37 +451,37 @@ The baseline set of these is presented with commentary in \autoref{nodes}.
 	/twist\_mux & Takes in multiple sources of velocity commands, and prioritizes what actually gets sent to the controller \\ \hline
 	/ekf\_localization & Part of the robot localization package, more information regarding this package can be found at \url{http://wiki.ros.org/robot_localization } \\ \hline 
 	\end{tabular}
-	\label{nodes}
-	\caption{Standard Husky Nodes}
+	\caption{Standard Husky Nodes}	
+	\label{nodes-table}
 \end{table}
 \egroup
 \newpage
 \subsection{Topics}
-You can view all topics that are active using \lstinline{rostopc list}. Some of the base topics are listed in \autoref{topics} and \autoref{topics-motion}.
+You can view all topics that are active using \lstinline{rostopc list}. Some of the base topics are listed in \autoref{topics-table} and \autoref{topics-motion}.
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{>{\columncolor{lightgrey}}m{.3\linewidth} m{.25\linewidth} m{.3\linewidth}} \hline
 		Topic & Message type & Description\\ \hline
-		\lstinline{/bluetooth_teleop/joy} & \lstinline{sensor_msgs/Joy} & Receives joystick commands, echo this topic to verify your controller is publishing  \\ \hline
-		\lstinline{/tf} & \lstinline{tf2_msgs/TFMessage} & Transforms between coordinate frames, this should always be publishing, and hence a good topic to echo to test your ROS connection \\ \hline
-		\lstinline{/status} & \lstinline{husky_msgs/HuskyStatus} & Displays system status information\\ \hline
-		\lstinline{/estop} & \lstinline{std_msgs/Bool} & Displays the estop status\\ \hline
-		\lstinline{/odometry/filtered} & \lstinline{nav_msgs/Odometry} &  The odometry estimate of the robot from \lstinline{/ekf_localization}\\ \hline
+		\lstinline!bluetooth_teleop/joy! & \lstinline!sensor_msgs/Joy! & Receives joystick commands, echo this topic to verify your controller is publishing \\ \hline
+		\lstinline!/tf! & \lstinline!tf2_msgs/TFMessage! & Transforms between coordinate frames, this should always be publishing, and hence a good topic to echo to test your ROS connection \\ \hline
+		\lstinline!/status! & \lstinline!husky_msgs/HuskyStatus! & Displays system status information\\ \hline
+		\lstinline!/estop! & \lstinline!std_msgs/Bool! & Displays the estop status\\ \hline
+		\lstinline!/odometry/filtered! & \lstinline!nav_msgs/Odometry! &  The odometry estimate of the robot from \lstinline!/ekf_localization!\\ \hline
 	\end{tabular}
-	\label{topics}
 	\caption{Standard Husky Topics}
+	\label{topics-table}
 \end{table}
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{>{\columncolor{lightgrey}}m{.3\linewidth} m{.25\linewidth} m{.3\linewidth}} \hline
-		Motion Topics & \lstinline{twist_mux} Priority & Description\\ \hline
-		\lstinline{husky_velocity_controller/cmd_vel} & - & Receives motion commands from \lstinline{twist_mux} based off their priority\\ \hline
-		\lstinline{joy_teleop/cmd_vel} & 10 & Joystick teleop input\\ \hline
-		\lstinline{twist_marker_server/cmd_vel} & 8 & Interactive marker teleop input\\ \hline
-		\lstinline{move_base/cmd_vel} & 2 & Autonomous movement input, for the husky navigation packages\\ \hline
-		\lstinline{cmd_vel} & 1 & Miscellaneous external input \\ \hline
+		Motion Topics & \lstinline!twist_mux! Priority & Description\\ \hline
+		\lstinline!husky_velocity_controller/cmd_vel! & - & Receives motion commands from \lstinline!twist_mux! based off their priority\\ \hline
+		\lstinline!joy_teleop/cmd_vel! & 10 & Joystick teleop input\\ \hline
+		\lstinline!twist_marker_server/cmd_vel! & 8 & Interactive marker teleop input\\ \hline
+		\lstinline!move_base/cmd_vel! & 2 & Autonomous movement input, for the husky navigation packages\\ \hline
+		\lstinline!cmd_vel! & 1 & Miscellaneous external input \\ \hline
 	\end{tabular}
 	\caption{Standard Husky Motion Topics}
 	\label{topics-motion}
@@ -558,13 +565,13 @@ and a complete charge may take up to 14 hours.
 	\label{battery-chart}
 \end{figure}
 
-In general, following these tips will help maximize the life of the battery.
+In general, following these tips will help maximize the life of the battery:
 
 \begin{itemize}
 	\item Always fully charge the battery as soon as you are finished using it.
 	\item Charge batteries at room temperature.  Never charge lead-acid batteries at temperatures above 35 degrees Celcius.
 	\item Charge batteries in a well-ventilated area.
-	\item Do not allow the battery to freeze.  An empty battery will freeze sooner than a full one.  Never charge a frozen battery.
+	\item Do not allow the battery to freeze.  A low battery will freeze sooner than a fully charged one.  Never charge a frozen battery.
 	\item Stored batteries should be topped up every month.  Completely cycle batteries every 4-6 months.
 	\item At a discharge rate of 50% DOD (depth of discharge), the lifecycle of the Husky battery is 450-550 cycles.  
 	After this point, reduced capacity will be apparent.
@@ -592,19 +599,19 @@ If water is suspected to have entered the Husky A200 chassis, remove the battery
 Husky’s wheels can handle a range of different terrains, but work best when inflated to the proper pressure. 
 Lower tire pressures, for example 10 psi, ensure better traction in rough and varied terrain, where rocks or 
 other obstacles may be encountered. This has the adverse effect of lowering drivetrain efficiency and decreasing 
-battery life, so high pressures up to a maximum of 20 psi should be used when driving on flat surfaces. 
+battery charge, so high pressures up to a maximum of 20 psi should be used when driving on flat surfaces. 
 
 \subsection{Troubleshooting}
 
 This section lists a few possible issues which may be encountered:
 
 \begin{itemize}
-	\item The blue light around the power button does not display when pressing the power button. Ensure that the battery is charged and correctly connected. Use a multi-meter to verify the voltage on the battery terminals.
-	\item Comm light stays red/flickers. Your program may not be sending motion commands faster than 10Hz. If there is a poor quality connection, some commands may be lost, so it may be necessary to increase the frequency of commands sent. The maximum frequency commands can be sent is 50Hz
-	\item E-stop light illuminated. Twist the red e-stop to release it, and confirm that the robot is not locked out.
-	\item Battery indicator flashing. Battery voltage is too low for Husky to drive the motors. Charge the battery and try again.
-	\item A ROS package isn't starting. Verify the upstart logs, \lstinline{/var/log/upstart/husky_core.log} to see if there are any error during upstart.
-	\item Husky experiences momentary drops in communication.  It's possible the robot has reached the thermal limit, or current limit. The maximum current limits are set to 18.3A, however, as  the motors are only rated for 8A continuous, anything above that will trigger the current limit eventually, the higher above this limit, the more quickly it will trigger.  If you are unsure whether this is the case, feel free to contact support@clearpathrobotics.com with a rosbag of your system. Clearpath robotics also offers a high torque upgrade if more torque is required for your project.
+	\item \textbf{The blue light around the power button does not display when pressing the power button.} Ensure that the battery is charged and correctly connected. Use a multi-meter to verify the voltage on the battery terminals.
+	\item \textbf{Comm light stays red/flickers.} Your program may not be sending motion commands faster than 10Hz. If there is a poor quality connection, some commands may be lost, so it may be necessary to increase the frequency of commands sent. The maximum frequency commands can be sent is 50Hz
+	\item \textbf{E-stop light illuminated.} Twist the red e-stop to release it, and confirm that the robot is not locked out.
+	\item \textbf{Battery indicator flashing.} Battery voltage is too low for Husky to drive the motors. Charge the battery and try again.
+	\item \textbf{A ROS package isn't starting.} Verify the upstart logs, \lstinline{/var/log/upstart/husky_core.log} to see if there are any error during upstart.
+	\item \textbf{Husky experiences momentary drops in communication.} It's possible the robot has reached the thermal limit, or current limit. The maximum current limits are set to 18.3A, however, as  the motors are only rated for 8A continuous, anything above that will trigger the current limit eventually, the higher above this limit, the more quickly it will trigger.  If you are unsure whether this is the case, feel free to contact support@clearpathrobotics.com with a rosbag of your system. Clearpath robotics also offers a high torque upgrade if more torque is required for your project.
 \end{itemize}
 	
 If you experience setup issues that aren’t listed here, or the suggested solution isn’t working out, please get in touch with our support team so we can help: support@clearpathrobotics.com.
@@ -615,6 +622,7 @@ If you experience setup issues that aren’t listed here, or the suggested solut
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=.9\textwidth]{husky-dimensions.png}
+	\caption{Husky Dimensions}
 \end{figure}
 \newpage
 \section{Service and Support}
