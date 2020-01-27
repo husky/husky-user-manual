@@ -75,8 +75,8 @@ This section provides an overview of the key specifications of the Husky platfor
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.9\linewidth]{husky-front.PNG}
-  \includegraphics[width=0.9\linewidth]{husky-rear.PNG}
+  \includegraphics[width=0.9\linewidth]{graphics/husky-front.png}
+  \includegraphics[width=0.9\linewidth]{graphics/husky-rear.png}
   \caption{Husky at a Glance}
   \label{husky_glance}
 \end{figure}
@@ -94,19 +94,19 @@ provide information about the current status of Husky. The indicators are descri
       \hline
     \rowcolor{lightgrey} Icon & Description
       \\ \hline
-    \includegraphics[width=0.7 cm]{battery-mini.png} &
+    \includegraphics[width=0.7 cm]{graphics/battery-mini.png} &
       \textbf{Battery status} The four LED segments provide an approximate indication of the relative lifetime remaining in the battery,
       \\[4pt] \hline
-    \includegraphics[width=0.7 cm]{comm-mini.png} &
+    \includegraphics[width=0.7 cm]{graphics/comm-mini.png} &
       \textbf{Communication status} When green, Husky is receiving a stream of correctly-formatted motion commands, and is ready to drive. When yellow, Husky is receiving commands, but will not drive due to emergency stop or another error. When red, serial communications are currently timed-out.
       \\[4pt] \hline
-    \includegraphics[width=0.7 cm]{err-mini.png} &
+    \includegraphics[width=0.7 cm]{graphics/err-mini.png} &
       \textbf{General error status} Illuminates red when Husky will not drive due to an error state. Such states include emergency stop, insufficient battery power, or an unspecified software error.
       \\[4pt] \hline
-    \includegraphics[width=0.7 cm]{estop-mini.png} &
+    \includegraphics[width=0.7 cm]{graphics/estop-mini.png} &
       \textbf{Emergency stop status} Illuminates red when Husky will not drive due to the emergency stop being activated, either onboard or wireless (if available).
       \\[4pt] \hline
-    \includegraphics[width=0.7 cm]{charge-mini.png} &
+    \includegraphics[width=0.7 cm]{graphics/charge-mini.png} &
       \textbf{Charge Indicator} Illuminates red when Husky user power is being supplied externally.
       \\[4pt] \hline
     \end{tabular}
@@ -121,7 +121,7 @@ The reference frame used by all Clearpath Robotics ground vehicles is based on I
 The direction of the axes differs from those used for roll, pitch, and yaw in aircraft, and care should be taken to ensure that data is interpreted correctly.
 
  \begin{figure}[h]
-	\includegraphics[width=\textwidth]{rframe.png}
+	\includegraphics[width=\textwidth]{graphics/rframe.png}
 	\caption{Husky Reference Frame}
 	\label{rframe}
  \end{figure}
@@ -134,7 +134,7 @@ Husky provides a female DE-9 connector for communication with a host device. The
 \begin{figure}[h]
 	\centering
 	\begin{tabular}{  >{\centering\arraybackslash}m{.4\linewidth} c c c c }
-	\multirow{5}{*}{\includegraphics[width=0.4\textwidth]{pinout.png}} \\  \cline{2-5}
+	\multirow{5}{*}{\includegraphics[width=0.4\textwidth]{graphics/pinout.png}} \\  \cline{2-5}
 	& \cellcolor{lightgrey}  Pin & \cellcolor{lightgrey}  Name & \cellcolor{lightgrey}  Dir & \cellcolor{lightgrey}  Description \\ \cline{2-5}
 	& 2 & RX & IN & Data from Platform\\  \cline{2-5}
 	& 3 & TX & OUT & Data to Platform\\ \cline{2-5}
@@ -237,7 +237,7 @@ commands are continued, Husky will move at the speed commanded once the e-stop i
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.6\textwidth]{estop-lockout.png}
+	\includegraphics[width=0.6\textwidth]{graphics/estop-lockout.png}
 	\caption{Husky Emergency Stop and Lockout}
 	\label{estop-lockout}
 \end{figure}
@@ -312,7 +312,7 @@ Husky’s serial port is located in the user power panel accessible from the use
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{RS232.png}
+	\includegraphics[width=0.8\textwidth]{graphics/RS232.png}
 	\caption{Husky RS232 Connector}
 	\label{RS232}
 \end{figure}
@@ -395,7 +395,7 @@ To reconnect the battery:
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{battery-area.png}
+	\includegraphics[width=0.8\textwidth]{graphics/battery-area.png}
 	\caption{Husky Battery Area}
 	\label{battery-area}
 \end{figure}
@@ -418,8 +418,8 @@ remove the screwdriver to lock the wire in place.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.3\textwidth]{power-connector-1.png}
-	\includegraphics[width=0.5\textwidth]{power-connector-2.png}
+	\includegraphics[width=0.3\textwidth]{graphics/power-connector-1.png}
+	\includegraphics[width=0.5\textwidth]{graphics/power-connector-2.png}
 	\caption{Removable Power Connectors}
 	\label{connectors}
 \end{figure}
@@ -477,19 +477,11 @@ You can view all topics that are active using \lstinline{rostopc list}. Some of 
 	\centering
 	\begin{tabular}{>{\columncolor{lightgrey}}m{.3\linewidth} m{.25\linewidth} m{.3\linewidth}} \hline
 		Topic & Message type & Description\\ \hline
-<<<<<<< HEAD
-		\lstinline|/bluetooth_teleop/joy| & \lstinline|sensor_msgs/Joy| & Receives joystick commands, echo this topic to verify your controller is publishing  \\ \hline
-		\lstinline|/tf| & \lstinline|tf2_msgs/TFMessage| & Transforms between coordinate frames, this should always be publishing, and hence a good topic to echo to test your ROS connection \\ \hline
-		\lstinline|/status| & \lstinline|husky_msgs/HuskyStatus| & Displays system status information\\ \hline
-		\lstinline|/estop| & \lstinline|std_msgs/Bool| & Displays the estop status\\ \hline
-		\lstinline|/odometry/filtered| & \lstinline|nav_msgs/Odometry| &  The odometry estimate of the robot from \lstinline|/ekf_localization|\\ \hline
-=======
 		\lstinline!bluetooth_teleop/joy! & \lstinline!sensor_msgs/Joy! & Receives joystick commands, echo this topic to verify your controller is publishing \\ \hline
 		\lstinline!/tf! & \lstinline!tf2_msgs/TFMessage! & Transforms between coordinate frames, this should always be publishing, and hence a good topic to echo to test your ROS connection \\ \hline
 		\lstinline!/status! & \lstinline!husky_msgs/HuskyStatus! & Displays system status information\\ \hline
 		\lstinline!/estop! & \lstinline!std_msgs/Bool! & Displays the estop status\\ \hline
 		\lstinline!/odometry/filtered! & \lstinline!nav_msgs/Odometry! &  The odometry estimate of the robot from \lstinline!/ekf_localization!\\ \hline
->>>>>>> 46e23147c6a4b9b20978f874f25644e6b309b5b3
 	\end{tabular}
 	\caption{Standard Husky Topics}
 	\label{topics-table}
@@ -498,21 +490,12 @@ You can view all topics that are active using \lstinline{rostopc list}. Some of 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{>{\columncolor{lightgrey}}m{.3\linewidth} m{.25\linewidth} m{.3\linewidth}} \hline
-<<<<<<< HEAD
 		Motion Topics & \lstinline|twist_mux| Priority & Description\\ \hline
 		\lstinline|husky_velocity_controller/cmd_vel| & - & Receives motion commands from \lstinline|twist_mux| based off their priority\\ \hline
 		\lstinline|joy_teleop/cmd_vel| & 10 & Joystick teleop input\\ \hline
 		\lstinline|twist_marker_server/cmd_vel| & 8 & Interactive marker teleop input\\ \hline
 		\lstinline|move_base/cmd_vel| & 2 & Autonomous movement input, for the husky navigation packages\\ \hline
 		\lstinline|cmd_vel| & 1 & Miscellaneous external input \\ \hline
-=======
-		Motion Topics & \lstinline!twist_mux! Priority & Description\\ \hline
-		\lstinline!husky_velocity_controller/cmd_vel! & - & Receives motion commands from \lstinline!twist_mux! based off their priority\\ \hline
-		\lstinline!joy_teleop/cmd_vel! & 10 & Joystick teleop input\\ \hline
-		\lstinline!twist_marker_server/cmd_vel! & 8 & Interactive marker teleop input\\ \hline
-		\lstinline!move_base/cmd_vel! & 2 & Autonomous movement input, for the husky navigation packages\\ \hline
-		\lstinline!cmd_vel! & 1 & Miscellaneous external input \\ \hline
->>>>>>> 46e23147c6a4b9b20978f874f25644e6b309b5b3
 	\end{tabular}
 	\caption{Standard Husky Motion Topics}
 	\label{topics-motion}
@@ -591,7 +574,7 @@ and a complete charge may take up to 14 hours.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\textwidth]{battery-chart.png}
+	\includegraphics[width=0.7\textwidth]{graphics/battery-chart.png}
 	\caption{Husky Battery Voltage Characteristics}
 	\label{battery-chart}
 \end{figure}
@@ -637,21 +620,12 @@ battery charge, so high pressures up to a maximum of 20 psi should be used when 
 This section lists a few possible issues which may be encountered:
 
 \begin{itemize}
-<<<<<<< HEAD
-	\item The blue light around the power button does not display when pressing the power button. Ensure that the battery is charged and correctly connected. Use a multi-meter to verify the voltage on the battery terminals.
-	\item Comm light stays red/flickers. Your program may not be sending motion commands faster than 10Hz. If there is a poor quality connection, some commands may be lost, so it may be necessary to increase the frequency of commands sent. The maximum frequency commands can be sent is 50Hz
-	\item E-stop light illuminated. Twist the red e-stop to release it, and confirm that the robot is not locked out.
-	\item Battery indicator flashing. Battery voltage is too low for Husky to drive the motors. Charge the battery and try again.
-	\item A ROS package isn't starting. Verify the upstart logs, \lstinline{/var/log/upstart/husky_core.log} to see if there are any error during upstart.
-	\item Husky experiences momentary drops in communication.  It's possible the robot has reached the thermal limit, or current limit. The maximum current limits are set to 18.3A, however, as  the motors are only rated for 8A continuous, anything above that will trigger the current limit eventually, the higher above this limit, the more quickly it will trigger.  If you are unsure whether this is the case, feel free to contact support@clearpathrobotics.com with a rosbag of your system. Clearpath robotics also offers a high torque upgrade if more torque is required for your project.
-=======
 	\item \textbf{The blue light around the power button does not display when pressing the power button.} Ensure that the battery is charged and correctly connected. Use a multi-meter to verify the voltage on the battery terminals.
 	\item \textbf{Comm light stays red/flickers.} Your program may not be sending motion commands faster than 10Hz. If there is a poor quality connection, some commands may be lost, so it may be necessary to increase the frequency of commands sent. The maximum frequency commands can be sent is 50Hz
 	\item \textbf{E-stop light illuminated.} Twist the red e-stop to release it, and confirm that the robot is not locked out.
 	\item \textbf{Battery indicator flashing.} Battery voltage is too low for Husky to drive the motors. Charge the battery and try again.
 	\item \textbf{A ROS package isn't starting.} Verify the upstart logs, \lstinline{/var/log/upstart/husky_core.log} to see if there are any error during upstart.
 	\item \textbf{Husky experiences momentary drops in communication.} It's possible the robot has reached the thermal limit, or current limit. The maximum current limits are set to 18.3A, however, as  the motors are only rated for 8A continuous, anything above that will trigger the current limit eventually, the higher above this limit, the more quickly it will trigger.  If you are unsure whether this is the case, feel free to contact support@clearpathrobotics.com with a rosbag of your system. Clearpath robotics also offers a high torque upgrade if more torque is required for your project.
->>>>>>> 46e23147c6a4b9b20978f874f25644e6b309b5b3
 \end{itemize}
 
 If you experience setup issues that aren’t listed here, or the suggested solution isn’t working out, please get in touch with our support team so we can help: support@clearpathrobotics.com.
@@ -661,7 +635,7 @@ If you experience setup issues that aren’t listed here, or the suggested solut
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=.9\textwidth]{husky-dimensions.png}
+	\includegraphics[width=.9\textwidth]{graphics/husky-dimensions.png}
 	\caption{Husky Dimensions}
 \end{figure}
 \newpage
