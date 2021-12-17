@@ -51,7 +51,7 @@ Contained in your Husky shipment are the following items:
 
 To use Husky, you will require a PC capable of running Robot Operating System (ROS).
 If a computer option was purchased from Clearpath Robotics with Husky, then the included laptop or minicomputer has
-already been configured with Ubuntu 16.04 and ROS Kinetic, plus appropriate ROS packages and other configuration for use with Husky.
+already been configured with Ubuntu 18.04 and ROS Melodic, plus appropriate ROS packages and other configuration for use with Husky.
 
 \subsection{Expansions}
 To expand the capabilities of Husky, consider the following accessories offered by Clearpath Robotics:
@@ -510,7 +510,7 @@ without needing to stop or start anything else. See the Overlays page on the ROS
 When it comes time for some of your own code to be launched on startup of Husky, edit the default workspace setup file,
 located in \lstinline{/etc/ros/setup.bash}. Change the final line from the default to instead source your own workspace.
 When this is done, copy the launch file for your software into the \lstinline{robot_upstart} folder, which is located at
-\lstinline{/etc/ros/kinetic/ros.d}. Now restart the Husky background service and your nodes should come
+\lstinline{/etc/ros/melodic/ros.d}. Now restart the Husky background service and your nodes should come
 up with the rest of Husky:
 
 \begin{lstlisting}
