@@ -16,7 +16,7 @@
 \usepackage{float}
 \usepackage{fancyhdr}
 \pagestyle{fancyplain}
-\lfoot{Rev. 1.1.4}
+\lfoot{Rev. 1.1.5}
 \rfoot{Husky UGV}
 \lhead{}
 \chead{}
@@ -415,24 +415,21 @@ removable connector into which your payload power leads may connect.
 Husky UGVs with serial numbers lower than A200-0802 have different user power connections.  These older robots have
 5V, 12V, and 24V supplies, all fused at 5A.
 
-To begin, expose about 5mm of bare wire from the payload power leads. The power connector features two
-openings on the top for each pin; a square hole and a round hole. Insert a 2mm wide flat head screwdriver
-into the square hole to “open” the adjacent round hole as seen in \autoref{connectors}. Slide the power lead into the round hole, and then
-remove the screwdriver to lock the wire in place.
+To begin, expose about 5mm of bare wire from the payload power leads and twist the exposed wire on both leads.  Take 2 molex terminals from the spare parts kit provided and insert the exposed wire and crimp the terminals, ensuring the wires are well secured inside the terminal, as shown in \autoref{connectors}. Take 1 connector housing from the spare parts kit provided and insert the positive payload power lead (red) into position 4, 5, or 6 of the connector until it locks into place and insert the negative payload power lead (black) into position 1, 2, or 3 of the connector until it locks into place.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.3\textwidth]{graphics/power-connector-1.png}
-	\includegraphics[width=0.5\textwidth]{graphics/power-connector-2.png}
-	\caption{Removable Power Connectors}
+	\includegraphics[width=0.5\textwidth]{graphics/updated-power-connector-1.jpg}
+	\includegraphics[width=0.38\textwidth]{graphics/updated-power-connector-2.jpg}
+	\caption{User Power Connectors}
 	\label{connectors}
 \end{figure}
 
 When connecting payloads, be sure to observe correct polarity as marked on the inside of the user bay.
-Do not exceed the 5A maximum current limit of each power rail; failure to do so may result in damage
+Do not exceed the specified maximum current limit of each power rail; failure to do so may result in damage
 to Husky or your payload.
 
-For more technical information on the power connectors, as well as their corresponding mating connectors, please visit: \url{http://www.digikey.com/product-search/en?vendor=0&keywords=281-1856-ND&cur=USD}
+For more technical information on the power connectors, as well as their corresponding mating connectors, please visit: \url{https://www.digikey.ca/en/products/detail/molex/0039012065/930272?s=N4IgTCBcDaIOoFkwGYDsAGMBaAcgERAF0BfIA}
 
 \subsection{Verification}
 If a computer was purchased with Husky, it will be setup to interface automatically upon startup.
