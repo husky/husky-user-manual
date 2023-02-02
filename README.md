@@ -1,7 +1,7 @@
 Husky User Manual
 ==================
 
-These tutorials have been superceded. Find the latest Husky user manual at [docs.clearpathrobotics.com](https://docs.clearpathrobotics.com/docs/robots/outdoor_robots/husky/user_manual_husky/).
+ # **NOTE: These tutorials have been superceded. Find the latest Husky user manual at [docs.clearpathrobotics.com](https://docs.clearpathrobotics.com/docs/robots/outdoor_robots/husky/user_manual_husky/).**
 
 This repository contains the LaTeX source code for building the end user product
 documentation for [Husky](http://www.clearpathrobotics.com/husky/). If you are
